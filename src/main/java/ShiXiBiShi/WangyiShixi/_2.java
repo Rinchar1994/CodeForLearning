@@ -1,4 +1,4 @@
-package main.java.WangyiShixi;
+package main.java.ShiXiBiShi.WangyiShixi;
 
 import java.math.BigDecimal;
 import java.util.Scanner;
