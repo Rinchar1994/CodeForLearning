@@ -6,6 +6,9 @@ import java.util.Scanner;
  * Created by Rinchar on 2018/4/1.
  */
 public class _1 {
+    /*
+    * 给定一个字符串和一个数字n，找出字符串中出现连续出现n次的子串（只能出现n次，n+1dou不行）
+    */
     public static void play(String str, int num) {
         int slow = 0, fast = 0;
         if (str.length() == 0) return;

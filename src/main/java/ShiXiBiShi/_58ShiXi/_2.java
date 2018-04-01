@@ -4,6 +4,9 @@ package main.java.ShiXiBiShi._58ShiXi;
  * Created by Rinchar on 2018/4/1.
  */
 public class _2 {
+    /*
+    * 求数组中子数组的最大和（笨点的话用DP，否则用本方法）
+    */
     public static int getInfoMaxScore(int[] scoreArr) {
         int nall;
         int nstart;
