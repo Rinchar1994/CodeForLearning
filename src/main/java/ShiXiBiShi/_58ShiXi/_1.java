@@ -1,0 +1,44 @@
+package main.java.ShiXiBiShi._58ShiXi;
+
+import java.util.Scanner;
+
+/**
+ * Created by Rinchar on 2018/4/1.
+ */
+public class _1 {
+    public static void play(String str, int num) {
+        int slow = 0, fast = 0;
+        if (str.length() == 0) return;
+        char temp = str.charAt(0);
+        while (fast < str.length()) {
+            if (temp == str.charAt(fast)) {
+                if (++fast >= str.length()) {
+                    if (fast - slow == num) {
+                        for (int i = 0; i < fast - slow - num + 1; i++) {
+                            int begin = slow + 1, end = slow + num;
+                            System.out.println("(" + begin + "," + end + ","
+                                    + str.substring(slow, slow + num) + ")");
+                        }
+                    }
+                    break;
+                }
+            } else {
+                if (fast - slow == num) {
+                    for (int i = 0; i < fast - slow - num + 1; i++) {
+                        int begin = slow + 1, end = slow + num;
+                        System.out.println("(" + begin + "," + end + ","
+                                + str.substring(slow, slow + num) + ")");
+                    }
+                }
+                slow = fast;
+                temp = str.charAt(fast);
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        String a = "abbcccddeefffgggcc";
+        int num = 2;
+        play(a, num);
+    }
+}
