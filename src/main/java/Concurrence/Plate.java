@@ -1,4 +1,4 @@
-package main.java;
+package main.java.Concurrence;
 
 import java.util.ArrayList;
 import java.util.List;
