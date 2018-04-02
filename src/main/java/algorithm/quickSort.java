@@ -1,7 +1,7 @@
 package main.java.algorithm;
 
 
-import main.java.LeetCodeUtil.ArrayPrint;
+import main.java.LeetCode.LeetCodeUtil.ArrayPrint;
 
 /**
  * Created by Rinchar on 2018/3/15.
