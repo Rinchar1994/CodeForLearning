@@ -1,7 +1,11 @@
 package main.java.ShiXiBiShi.PinduoduoShiXi;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Scanner;
 
 /**
@@ -10,24 +14,60 @@ import java.util.Scanner;
 public class _1 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        /*String[] a = in.nextLine().split(" ");
-        int n = Integer.valueOf(a[0]), k = Integer.valueOf(a[1]);*/
-        int n = in.nextInt(), k = in.nextInt();
-        if (k > n) System.out.println("error");
-        int[] low_i = new int[n], high_i = new int[n];
-        HashMap<Integer, Integer> lo_map = new HashMap<>();
-        HashMap<Integer, Integer> hi_map = new HashMap<>();
-        for (int i = 0; i < n; i++) {
-            low_i[i] = in.nextInt();
-            high_i[i] = in.nextInt();
-            lo_map.put(low_i[i], high_i[i]);
-            hi_map.put(high_i[i], low_i[i]);
+        int n = in.nextInt();
+        int k = in.nextInt();
+        int num = 2;
+        int[][] a = new int[n][num];
+        int j = 0;
+        while(in.hasNextInt()) {
+            a[j][0] = in.nextInt();
+            a[j][1] = in.nextInt();
+            j++;
         }
-        Arrays.sort(low_i);
-        Arrays.sort(high_i);
-        for (int i = k; i < n; i++) {
-            int hi = lo_map.get(low_i[i]);
-
+        Map<Integer,Integer> m = new HashMap<Integer,Integer>();
+        for(int i=0;i<n;i++) {
+            int low_i = a[i][0];
+            int high_i = a[i][1];
+            int dis = high_i - low_i;
+            int current = low_i;
+            for(int x=0;x<dis+1;x++) {
+                if(m.containsKey(current)) {
+                    int val = m.get(current);
+                    val = val + 1;
+                    m.put(current, val);
+                }else {
+                    m.put(current, 1);
+                }
+                current = current + 1;
+            }
+        }
+        Iterator it = m.entrySet().iterator();
+        Entry e = null;
+        List<Integer> li = new ArrayList<Integer>();
+        while(it.hasNext()) {
+            e = (Entry) it.next();
+            int val = (int) e.getValue();
+            int key = (int)e.getKey();
+            if(val>=k) {
+                li.add(key);
+            }
+        }
+        int maxVal = Integer.MIN_VALUE;
+        int minVal = Integer.MAX_VALUE;
+        if(li.size() != 0) {
+            Iterator<Integer> arrit = li.iterator();
+            while(arrit.hasNext()) {
+                int cuInt = arrit.next();
+                if(cuInt>maxVal) {
+                    maxVal = cuInt;
+                }
+                if(cuInt<minVal) {
+                    minVal = cuInt;
+                }
+            }
+            System.out.println(minVal + " " + maxVal);
+        }else {
+            System.out.println("error");
         }
     }
 }
