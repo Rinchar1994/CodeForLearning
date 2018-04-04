@@ -6,7 +6,14 @@ package main.java.NowCoder.NowCoderCode;
 public class _7_Fibonacci {
     public static int Fibonacci(int n) {
         if (n <= 1) return n;
-        return Fibonacci(n - 1) + Fibonacci(n - 2);
+        if (n == 2) return 1;
+        int slow = 1, fast = 1;
+        for (int i = 3; i <= n; i++) {
+            int temp = fast;
+            fast += slow;
+            slow = temp;
+        }
+        return fast;
     }
 
     public static void main(String[] args) {

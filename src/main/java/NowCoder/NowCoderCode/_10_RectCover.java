@@ -6,6 +6,12 @@ package main.java.NowCoder.NowCoderCode;
 public class _10_RectCover {
     public static int RectCover(int target) {
         if (target <= 2) return target;
-        return RectCover(target - 1) + RectCover(target - 2);
+        int slow = 1, fast = 2, temp;
+        for(int i = 3; i <= target; i++) {
+            temp = fast;
+            fast += slow;
+            slow = temp;
+        }
+        return fast;
     }
 }
