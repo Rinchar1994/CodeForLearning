@@ -7,18 +7,18 @@ import main.java.NowCoder.NowCoderUtil.ListNode;
  */
 public class _14_FindKthToTail {
     public static ListNode FindKthToTail(ListNode head, int k) {
-        ListNode p = head;
-        int len = 0;
-        while (p != null) {
-            p = p.next;
-            len++;
+        if (head == null || k == 0) {
+            return null;
         }
-        p = head;
-        if(k > len) return null;
-        k = len - k + 1;
-        while (--k > 0) {
-            p = p.next;
+        ListNode slow = head, fast = head;
+        for (int i = 0; i < k - 1; i++) {
+            if (fast.next == null) return null;
+            fast = fast.next;
         }
-        return p;
+        while (fast.next != null) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+        return slow;
     }
 }
