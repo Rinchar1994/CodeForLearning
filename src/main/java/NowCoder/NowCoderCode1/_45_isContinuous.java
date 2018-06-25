@@ -5,6 +5,6 @@ package main.java.NowCoder.NowCoderCode1;
  */
 public class _45_isContinuous {
     public boolean isContinuous(int [] numbers) {
-
+        return true;
     }
 }
