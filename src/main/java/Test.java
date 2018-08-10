@@ -48,7 +48,7 @@ class Someone {
 
 public class Test{
     public static void main(String[] args) {
-        String[] strings = {"google", "applelppa", "bananaananab"};
+        String[] strings = {"google", "applelppa", "bananaab"};
         for (String each : strings) {
             int le = Lon(each);
             System.out.println(le);
